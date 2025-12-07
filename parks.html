@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>CoCo散步氣象站 - 桃園</title>
+    <title>CoCo散步氣象站 - 各地公園</title>
     <link rel="icon" type="image/png" href="./icon-v2.png" />
     <link rel="apple-touch-icon" href="./icon-v2.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -200,15 +200,13 @@
         transform: scale(1.05);
       }
 
-      .hero-card {
+      .selector-card {
         background: var(--ac-cream);
-        border-radius: 35px;
-        padding: 30px 25px;
-        text-align: center;
+        border-radius: 30px;
+        padding: 25px;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         border: 4px solid white;
         margin-bottom: 25px;
-        position: relative;
         animation: fadeInUp 0.8s ease-out 0.2s both;
       }
 
@@ -221,6 +219,190 @@
           opacity: 1;
           transform: translateY(0);
         }
+      }
+
+      .api-notice {
+        background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+        padding: 12px 15px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        border: 2px solid var(--ac-yellow);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .api-notice a {
+        color: var(--ac-blue);
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .api-notice a:hover {
+        text-decoration: underline;
+      }
+
+      .api-key-section {
+        margin-bottom: 20px;
+      }
+
+      .api-key-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .api-key-header label {
+        font-size: 1rem;
+        font-weight: 900;
+        color: var(--ac-brown);
+      }
+
+      .key-status {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+        border-radius: 10px;
+        font-weight: bold;
+      }
+
+      .key-status.saved {
+        background: #c8e6c9;
+        color: #2e7d32;
+      }
+
+      .key-status.empty {
+        background: #ffcdd2;
+        color: #c62828;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+        border: 3px solid var(--ac-yellow);
+        border-radius: 15px;
+        background: white;
+        color: var(--ac-dark);
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: var(--ac-blue);
+        box-shadow: 0 0 0 4px rgba(75, 181, 217, 0.2);
+      }
+
+      input[type="text"]::placeholder {
+        color: #aaa;
+        font-weight: normal;
+      }
+
+      .location-selector {
+        margin-bottom: 20px;
+      }
+
+      .location-selector label {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 900;
+        margin-bottom: 12px;
+        color: var(--ac-brown);
+        text-align: center;
+      }
+
+      select {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 1rem;
+        border: 3px solid var(--ac-yellow);
+        border-radius: 20px;
+        background: white;
+        color: var(--ac-dark);
+        font-family: "Zen Maru Gothic", sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23796452' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        padding-right: 50px;
+      }
+
+      select:hover {
+        border-color: var(--ac-brown);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      select:focus {
+        outline: none;
+        border-color: var(--ac-blue);
+        box-shadow: 0 0 0 4px rgba(75, 181, 217, 0.2);
+      }
+
+      button {
+        width: 100%;
+        padding: 18px;
+        font-size: 1.2rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, var(--ac-yellow) 0%, #f5e77d 100%);
+        color: var(--ac-brown);
+        border: 3px solid white;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: "Zen Maru Gothic", sans-serif;
+        box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+      }
+
+      button:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 9px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      button:active {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      button span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-card {
+        background: var(--ac-cream);
+        border-radius: 35px;
+        padding: 30px 25px;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border: 4px solid white;
+        margin-bottom: 25px;
+        position: relative;
       }
 
       .hero-period {
@@ -435,6 +617,17 @@
         display: none;
       }
 
+      .error-message {
+        background: linear-gradient(135deg, #ffd4d4 0%, #ffc9c9 100%);
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        color: #c97064;
+        font-weight: 600;
+        border: 3px solid white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
       @media (max-width: 768px) {
         body::before {
           font-size: 2.5rem;
@@ -459,17 +652,17 @@
   </head>
 
   <body>
-    <div id="loading" class="loading-screen">
+    <div id="loading" class="loading-screen hidden">
       <div class="loading-poodle">🐩</div>
-      <p class="loading-text">CoCo正在觀察桃園的雲朵...</p>
+      <p class="loading-text">CoCo正在觀察雲朵...</p>
     </div>
 
     <div class="status-bar">
-      <div class="location-pill">🏞️ 桃園</div>
-      <div id="updateTime" class="update-pill">更新中...</div>
+      <div class="location-pill" id="locationDisplay">🏞️ 選擇地點</div>
+      <div id="updateTime" class="update-pill">--</div>
     </div>
 
-    <div class="container" style="display: none" id="mainContent">
+    <div class="container">
       <div class="coco-header">
         <h1 class="coco-title">🐩 CoCo散步氣象站</h1>
         <p class="coco-subtitle">今天適合出門散步嗎？</p>
@@ -522,17 +715,101 @@
       </div>
 
       <div class="nav-tabs">
-        <a href="index.html" class="nav-tab active">🏠 桃園天氣</a>
-        <a href="parks.html" class="nav-tab">🗺️ 各地公園</a>
+        <a href="index.html" class="nav-tab">🏠 桃園天氣</a>
+        <a href="parks.html" class="nav-tab active">🗺️ 各地公園</a>
       </div>
 
-      <div id="heroCard"></div>
-      <h3 class="section-title">稍後預報</h3>
-      <div class="scroll-container" id="futureForecasts"></div>
+      <div class="selector-card">
+        <div class="api-notice">
+          💡 首次使用需要<a href="https://opendata.cwa.gov.tw/" target="_blank"
+            >申請免費API金鑰</a
+          ><br />
+          輸入一次後會自動記住，不用再輸入！
+        </div>
+
+        <div class="api-key-section">
+          <div class="api-key-header">
+            <label for="apiKey">API金鑰 🔑</label>
+            <span class="key-status" id="keyStatus">未設定</span>
+          </div>
+          <input
+            type="text"
+            id="apiKey"
+            placeholder="貼上您的API金鑰（只需設定一次）"
+          />
+        </div>
+
+        <div class="location-selector">
+          <label for="city">選擇要散步的公園位置 🏞️</label>
+          <select id="city">
+            <option value="臺北市">台北 - 大安森林公園</option>
+            <option value="新北市">新北 - 淡水河岸</option>
+            <option value="桃園市">桃園 - 虎頭山公園</option>
+            <option value="臺中市">台中 - 中央公園</option>
+            <option value="臺南市">台南 - 巴克禮公園</option>
+            <option value="高雄市">高雄 - 衛武營公園</option>
+            <option value="基隆市">基隆 - 海洋廣場</option>
+            <option value="新竹市">新竹 - 青草湖</option>
+            <option value="嘉義市">嘉義 - 文化公園</option>
+          </select>
+        </div>
+
+        <button onclick="getWeather()">
+          <span>🐕 去看看今天適不適合散步！</span>
+        </button>
+      </div>
+
+      <div id="weatherDisplay" class="hidden">
+        <div id="heroCard"></div>
+        <h3 class="section-title">稍後預報</h3>
+        <div class="scroll-container" id="futureForecasts"></div>
+      </div>
     </div>
 
     <script>
-      const API_URL = "https://weather-checkup2.zeabur.app/api/weather/Taoyuan";
+      const cityMap = {
+        臺北市: { short: "台北", park: "大安森林公園" },
+        新北市: { short: "新北", park: "淡水河岸" },
+        桃園市: { short: "桃園", park: "虎頭山公園" },
+        臺中市: { short: "台中", park: "中央公園" },
+        臺南市: { short: "台南", park: "巴克禮公園" },
+        高雄市: { short: "高雄", park: "衛武營公園" },
+        基隆市: { short: "基隆", park: "海洋廣場" },
+        新竹市: { short: "新竹", park: "青草湖" },
+        嘉義市: { short: "嘉義", park: "文化公園" },
+      };
+
+      // 頁面載入時檢查並顯示已儲存的金鑰
+      window.addEventListener("load", () => {
+        const savedKey = localStorage.getItem("cwaApiKey");
+        const keyInput = document.getElementById("apiKey");
+        const keyStatus = document.getElementById("keyStatus");
+
+        if (savedKey) {
+          keyInput.value = savedKey;
+          keyStatus.textContent = "✓ 已儲存";
+          keyStatus.className = "key-status saved";
+        } else {
+          keyStatus.textContent = "未設定";
+          keyStatus.className = "key-status empty";
+        }
+      });
+
+      // 監聽金鑰輸入並自動儲存
+      document.getElementById("apiKey").addEventListener("input", (e) => {
+        const value = e.target.value.trim();
+        const keyStatus = document.getElementById("keyStatus");
+
+        if (value) {
+          localStorage.setItem("cwaApiKey", value);
+          keyStatus.textContent = "✓ 已儲存";
+          keyStatus.className = "key-status saved";
+        } else {
+          localStorage.removeItem("cwaApiKey");
+          keyStatus.textContent = "未設定";
+          keyStatus.className = "key-status empty";
+        }
+      });
 
       function getWeatherIcon(weather) {
         if (!weather) return "🌤️";
@@ -544,7 +821,7 @@
         return "🌤️";
       }
 
-      function getCocoAdvice(rainProb, maxTemp) {
+      function getCocoAdvice(rainProb, maxTemp, park) {
         const rain = parseInt(rainProb);
         const temp = parseInt(maxTemp);
 
@@ -579,8 +856,7 @@
 
         let cocoMessage;
         if (rain < 20 && temp >= 18 && temp <= 28) {
-          cocoMessage =
-            "🐕 汪汪！今天天氣超棒，最適合去虎頭山公園散步了！記得帶水壺和我的小零食～";
+          cocoMessage = `🐕 汪汪！今天天氣超棒，最適合去${park}散步了！記得帶水壺和我的小零食～`;
         } else if (rain < 30) {
           cocoMessage = "🐾 還不錯的天氣呢！可以出門蹓躂，享受戶外時光～";
         } else if (rain >= 30 && rain < 60) {
@@ -601,25 +877,42 @@
         return { rainIcon, rainText, clothIcon, clothText, cocoMessage };
       }
 
-      function getTimePeriod(startTime) {
-        const hour = new Date(startTime).getHours();
-        if (hour >= 5 && hour < 11) return "早晨";
-        if (hour >= 11 && hour < 14) return "中午";
-        if (hour >= 14 && hour < 18) return "下午";
-        if (hour >= 18 && hour < 23) return "晚上";
-        return "深夜";
+      function getTimePeriod(timeStr) {
+        const hour = parseInt(timeStr.split(" ")[1].split(":")[0]);
+        if (hour >= 6 && hour < 12) return "上午";
+        if (hour >= 12 && hour < 18) return "下午";
+        if (hour >= 18 && hour < 24) return "晚上";
+        return "凌晨";
       }
 
-      function renderWeather(data) {
-        const forecasts = data.forecasts;
-        const current = forecasts[0];
-        const others = forecasts.slice(1);
+      function renderWeather(weatherData, cityName) {
+        const wx = weatherData.find((i) => i.elementName === "Wx");
+        const pop = weatherData.find((i) => i.elementName === "PoP");
+        const minT = weatherData.find((i) => i.elementName === "MinT");
+        const maxT = weatherData.find((i) => i.elementName === "MaxT");
 
-        const advice = getCocoAdvice(current.rain, current.maxTemp);
+        const current = {
+          weather: wx.time[0].parameter.parameterName,
+          rain: pop.time[0].parameter.parameterName,
+          minTemp: minT.time[0].parameter.parameterName,
+          maxTemp: maxT.time[0].parameter.parameterName,
+          startTime: wx.time[0].startTime,
+        };
+
+        const cityInfo = cityMap[cityName];
+        const advice = getCocoAdvice(
+          current.rain,
+          current.maxTemp,
+          cityInfo.park
+        );
         const period = getTimePeriod(current.startTime);
         const avgTemp = Math.round(
           (parseInt(current.maxTemp) + parseInt(current.minTemp)) / 2
         );
+
+        document.getElementById(
+          "locationDisplay"
+        ).textContent = `🏞️ ${cityInfo.short}`;
 
         document.getElementById("heroCard").innerHTML = `
           <div class="hero-card">
@@ -633,7 +926,7 @@
               <div class="advice-item">
                 <div class="advice-icon">${advice.rainIcon}</div>
                 <div class="advice-text">${advice.rainText}</div>
-                <div class="advice-detail">降雨率 ${current.rain}</div>
+                <div class="advice-detail">降雨率 ${current.rain}%</div>
               </div>
               <div class="advice-item">
                 <div class="advice-icon">${advice.clothIcon}</div>
@@ -647,61 +940,86 @@
           </div>
         `;
 
-        const scrollContainer = document.getElementById("futureForecasts");
-        scrollContainer.innerHTML = "";
-        const todayDate = new Date().getDate();
+        const scroll = document.getElementById("futureForecasts");
+        scroll.innerHTML = "";
 
-        others.forEach((f) => {
-          let p = getTimePeriod(f.startTime);
-          const fDate = new Date(f.startTime);
-          if (fDate.getDate() !== todayDate) {
-            p = "明天" + p;
-          }
+        for (let i = 1; i < Math.min(3, wx.time.length); i++) {
+          const f = {
+            weather: wx.time[i].parameter.parameterName,
+            rain: pop.time[i].parameter.parameterName,
+            minTemp: minT.time[i].parameter.parameterName,
+            maxTemp: maxT.time[i].parameter.parameterName,
+            startTime: wx.time[i].startTime,
+          };
 
-          scrollContainer.innerHTML += `
+          const p = getTimePeriod(f.startTime);
+
+          scroll.innerHTML += `
             <div class="mini-card">
               <div class="mini-time">${p}</div>
               <div class="mini-icon">${getWeatherIcon(f.weather)}</div>
               <div class="mini-temp">${f.minTemp}° - ${f.maxTemp}°</div>
               <div style="font-size:0.8rem; color:#888; margin-top:5px;">💧${
                 f.rain
-              }</div>
+              }%</div>
             </div>
           `;
-        });
+        }
 
         const now = new Date();
         const days = ["週日", "週一", "週二", "週三", "週四", "週五", "週六"];
         document.getElementById("updateTime").textContent = `${
           now.getMonth() + 1
         }月${now.getDate()}日 ${days[now.getDay()]}`;
+
+        document.getElementById("weatherDisplay").classList.remove("hidden");
       }
 
-      async function fetchWeather() {
-        try {
-          const delayPromise = new Promise((resolve) =>
-            setTimeout(resolve, 1500)
-          );
-          const fetchPromise = fetch(API_URL).then((res) => res.json());
-          const [_, json] = await Promise.all([delayPromise, fetchPromise]);
+      async function getWeather() {
+        const apiKey = document.getElementById("apiKey").value.trim();
+        const cityName = document.getElementById("city").value;
+        const loading = document.getElementById("loading");
+        const display = document.getElementById("weatherDisplay");
 
-          if (json.success) {
-            renderWeather(json.data);
-            document.getElementById("loading").style.display = "none";
-            document.getElementById("mainContent").style.display = "block";
+        if (!apiKey) {
+          alert(
+            "請先輸入API金鑰！\n\n免費申請：https://opendata.cwa.gov.tw/\n（輸入一次後會自動記住）"
+          );
+          return;
+        }
+
+        loading.classList.remove("hidden");
+        display.classList.add("hidden");
+
+        try {
+          const url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${apiKey}&locationName=${encodeURIComponent(
+            cityName
+          )}`;
+          const res = await fetch(url);
+          const json = await res.json();
+
+          if (json.success === "true" && json.records.location.length > 0) {
+            renderWeather(json.records.location[0].weatherElement, cityName);
           } else {
-            throw new Error("API Error");
+            throw new Error("無法取得資料");
           }
         } catch (e) {
           console.error(e);
-          document.getElementById("loading").innerHTML = `
-            <div class="loading-poodle">😢</div>
-            <p class="loading-text">CoCo找不到天氣資料了...</p>
+          display.innerHTML = `
+            <div class="error-message">
+              <p style="font-size:2rem">😢</p>
+              <p>哎呀！CoCo找不到天氣資料...</p>
+              <p style="margin-top:10px; font-size:0.9rem;">請檢查API金鑰是否正確</p>
+              <p style="margin-top:5px; font-size:0.85rem; opacity:0.7;">
+                申請網址：<a href="https://opendata.cwa.gov.tw/" target="_blank" style="color:#4fb5d9">opendata.cwa.gov.tw</a>
+              </p>
+            </div>
           `;
+          display.classList.remove("hidden");
+        } finally {
+          loading.classList.add("hidden");
         }
       }
-
-      document.addEventListener("DOMContentLoaded", fetchWeather);
     </script>
   </body>
 </html>
